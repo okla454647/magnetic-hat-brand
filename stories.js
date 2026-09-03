@@ -11,3 +11,24 @@ document.querySelectorAll(".story-lang").forEach(button=>button.addEventListener
 async function getStory(){const params=new URLSearchParams(location.search);const slug=params.get("story");if(slug&&OWNVER_STORIES[slug])return OWNVER_STORIES[slug];const id=params.get("id");if(!id||!window.supabase)return null;try{const client=supabase.createClient("https://ghroutexxxybybxtllpu.supabase.co","sb_publishable_kKI5_UiC7G0PpZABaxaBew_LIR_xmGo");const{data}=await client.from("ownver_stories").select("id,word,summary,cover_path,video_path,created_at").eq("id",id).eq("published",true).single();if(!data)return null;const media=path=>path?`https://ghroutexxxybybxtllpu.supabase.co/storage/v1/object/public/ownver-media/${path}`:"";return{word:data.word,tone:"man",label:"COMMUNITY STORY",quote:`「${data.summary}」`,lead:data.summary,body:["這是一段由 OWNVER 社群留下的故事。幾個簡短的字，記錄了一個值得被記住的版本。","完整文字與影像將依照故事當事人的公開授權呈現。"],meaning:`${data.word} 代表一段由故事主人親自選擇、願意帶在身上的意義。`,author:"OWNVER COMMUNITY",date:"COMMUNITY STORY",coverUrl:media(data.cover_path),videoUrl:media(data.video_path)}}catch(e){return null}}
 function renderStory(story){const root=document.querySelector("#storyRoot");if(!root)return;if(!story){root.innerHTML='<section class="story-not-found"><div><p class="eyebrow">OWNVER STORY</p><h1>找不到這則故事</h1><p>這段內容可能尚未公開，或連結已經失效。</p><a class="button sand" href="stories.html">回到所有故事</a></div></section>';return}document.title=`${story.word}｜OWNVER STORY`;const customStyle=story.coverUrl?` style="background-image:linear-gradient(90deg,#0000,#0008),url('${escapeHtml(story.coverUrl)}')"`:"";root.innerHTML=`<section class="story-detail-hero"><div class="story-detail-image ${story.tone}"${customStyle}></div><div class="story-detail-title"><p class="eyebrow">${escapeHtml(story.label)}</p><h1>${escapeHtml(story.word)}</h1><p class="quote">${escapeHtml(story.quote)}</p><div class="story-meta"><span>${escapeHtml(story.date)}</span><span>${escapeHtml(story.author)}</span></div></div></section><article class="story-body"><p class="lead">${escapeHtml(story.lead)}</p><div class="body-copy">${story.body.map(p=>`<p>${escapeHtml(p)}</p>`).join("")}</div><div class="story-meaning"><b>THE MEANING<br>皮革上的意義</b><p>${escapeHtml(story.meaning)}</p></div>${story.videoUrl?`<video controls playsinline preload="metadata" poster="${escapeHtml(story.coverUrl)}" style="width:100%;background:#000" src="${escapeHtml(story.videoUrl)}"></video>`:""}<div class="story-actions"><a class="outline" href="stories.html">← 所有故事</a><button class="button sand" id="shareStory">分享這則故事 ↗</button></div></article><section class="story-next"><div><p class="eyebrow">YOUR WORDS. YOUR VERSION.</p><h2>下一個故事，也可以是你的。</h2><p>選擇 3–8 個字，把重要的話戴在身上。</p></div><a class="button sand" href="index.html#customize">MAKE IT YOURS</a></section>`;document.querySelector("#shareStory").onclick=async()=>{try{if(navigator.share)await navigator.share({title:`OWNVER — ${story.word}`,text:story.quote,url:location.href});else{await navigator.clipboard.writeText(location.href);alert("故事連結已複製")}}catch(e){}}}
 if(document.querySelector("#storyRoot"))getStory().then(renderStory);
+
+async function hydrateArchiveMedia(){
+  const grid=document.querySelector(".story-grid");
+  if(!grid||!window.supabase)return;
+  try{
+    const client=supabase.createClient("https://ghroutexxxybybxtllpu.supabase.co","sb_publishable_kKI5_UiC7G0PpZABaxaBew_LIR_xmGo");
+    const{data}=await client.from("ownver_stories").select("word,cover_path").eq("published",true).not("cover_path","is",null);
+    if(!data?.length)return;
+    const covers=new Map(data.map(item=>[item.word.toUpperCase(),`https://ghroutexxxybybxtllpu.supabase.co/storage/v1/object/public/ownver-media/${item.cover_path}`]));
+    grid.querySelectorAll(".archive-card").forEach(card=>{
+      const word=card.querySelector("h3")?.textContent.trim().toUpperCase();
+      const cover=covers.get(word);
+      const media=card.querySelector(".archive-card-media");
+      if(!cover||!media)return;
+      media.classList.remove("empty-media");
+      media.innerHTML="";
+      media.style.backgroundImage=`linear-gradient(#0000,#0006),url('${cover}')`;
+    });
+  }catch(error){console.warn("OWNVER archive media unavailable",error)}
+}
+hydrateArchiveMedia();
