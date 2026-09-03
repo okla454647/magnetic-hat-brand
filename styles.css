@@ -30,3 +30,54 @@ html,body{max-width:100%;overflow-x:hidden}
  .button,.outline,button,a{-webkit-tap-highlight-color:transparent}.button{min-height:48px}
 }
 @media(max-width:390px){.hero h1{font-size:42px}.hero h2{font-size:17px}.featured{grid-template-columns:1fr}.phone{height:330px}.cards article{min-width:84vw}.benefits{gap:4px}.benefits span{font-size:18px}}
+
+
+/* Story archive and editorial detail pages */
+.inner-page{background:#0b0b0b;color:#f5f1ea;min-height:100vh}
+.inner-page .site-header{position:relative;background:#0b0b0b;border-bottom:1px solid #292521}
+.inner-page .site-header nav a{color:#d8d1c8}
+.inner-page .site-header nav a.active{color:var(--sand)}
+.story-read{display:inline-flex;align-items:center;gap:8px;margin-top:14px;padding-bottom:3px;border-bottom:1px solid #8a796b;font-size:12px;font-weight:800;letter-spacing:.08em}
+.story-read span{transition:transform .2s}.story-read:hover span{transform:translateX(4px)}
+.story-archive-hero{padding:110px 5vw 86px;display:grid;grid-template-columns:1.15fr .85fr;gap:7vw;align-items:end;background:radial-gradient(circle at 78% 25%,#4a372b 0,#201a16 25%,#0b0b0b 66%)}
+.story-archive-hero .eyebrow,.story-detail .eyebrow{color:#c7a98f}
+.story-archive-hero h1{font-size:clamp(58px,8vw,118px);line-height:.88;letter-spacing:-.055em;margin:18px 0 0}
+.story-archive-hero .intro{max-width:510px;color:#c9c1b8;font-size:18px;line-height:1.9;margin:0 0 5px}
+.story-archive{padding:70px 5vw 110px;background:#f3eee7;color:#171614}
+.story-archive-head{display:flex;justify-content:space-between;align-items:end;padding-bottom:28px;border-bottom:1px solid #cfc5ba}
+.story-archive-head h2{font-size:clamp(30px,4vw,54px);margin:5px 0}
+.story-archive-head p{max-width:470px;line-height:1.8;color:#685f56}
+.story-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:56px 26px;padding-top:42px}
+.archive-card{display:grid;grid-template-columns:1.08fr .92fr;min-height:350px;background:#e9e1d7;overflow:hidden}
+.archive-card-media{position:relative;min-height:350px;background-position:center;background-size:cover}
+.archive-card-media.man{background-image:linear-gradient(#0000,#0007),url("assets/ownver-man-again.jpg")}
+.archive-card-media.woman{background-image:linear-gradient(#0000,#0007),url("assets/ownver-woman-own-it.jpg")}
+.archive-word{position:absolute;left:22px;bottom:22px;padding:9px 15px;color:#271309;background:linear-gradient(145deg,#b66e43,#754027);border:1px solid #3f2114;box-shadow:inset 0 0 0 2px #ca8a63;font-family:Georgia,serif;letter-spacing:.09em}
+.archive-card-copy{padding:34px 30px;display:flex;flex-direction:column;justify-content:space-between}
+.archive-card-copy small{letter-spacing:.13em;color:#8a684f;font-weight:800}
+.archive-card-copy h3{font-size:31px;margin:12px 0}
+.archive-card-copy p{font-size:15px;line-height:1.8;color:#5c554e}
+.archive-card-copy a{align-self:flex-start;font-weight:800;font-size:12px;letter-spacing:.08em;border-bottom:1px solid;padding-bottom:5px}
+.story-detail{background:#f3eee7;color:#171614}
+.story-detail-hero{min-height:650px;display:grid;grid-template-columns:1fr 1fr;background:#0b0b0b;color:#fff}
+.story-detail-image{background-position:center;background-size:cover;min-height:560px}
+.story-detail-image.man{background-image:linear-gradient(90deg,#0000,#0008),url("assets/ownver-man-again.jpg")}
+.story-detail-image.woman{background-image:linear-gradient(90deg,#0000,#0008),url("assets/ownver-woman-own-it.jpg")}
+.story-detail-title{padding:100px 7vw 70px;display:flex;flex-direction:column;justify-content:center}
+.story-detail-title h1{font-size:clamp(68px,9vw,138px);line-height:.85;letter-spacing:-.06em;margin:18px 0 28px}
+.story-detail-title .quote{color:#d8b99f;font-size:clamp(18px,2vw,28px);line-height:1.55;max-width:560px}
+.story-meta{margin-top:32px;padding-top:20px;border-top:1px solid #39332e;display:flex;gap:28px;color:#9f968e;font-size:12px;letter-spacing:.08em}
+.story-body{max-width:840px;margin:auto;padding:90px 24px 110px}
+.story-body .lead{font-family:Georgia,"Noto Serif TC",serif;font-size:clamp(25px,3.2vw,39px);line-height:1.65;color:#302821;margin:0 0 58px}
+.story-body .body-copy{font-size:18px;line-height:2.15;color:#514a43}
+.story-body .body-copy p{margin:0 0 30px}
+.story-meaning{margin:65px 0;padding:34px 0;border-top:1px solid #c9bcae;border-bottom:1px solid #c9bcae;display:grid;grid-template-columns:170px 1fr;gap:28px}
+.story-meaning b{font-size:13px;letter-spacing:.12em;color:#88573a}
+.story-meaning p{font-size:22px;line-height:1.65;margin:0}
+.story-actions{display:flex;justify-content:space-between;align-items:center;gap:18px;margin-top:65px}
+.story-actions .button{min-width:190px}.story-actions .outline{background:transparent}
+.story-next{background:#191613;color:#fff;padding:65px 5vw;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.story-next h2{font-size:clamp(30px,4vw,56px);margin:8px 0}.story-next p{color:#afa69e}
+.story-not-found{min-height:65vh;display:grid;place-items:center;text-align:center;padding:50px}
+@media(max-width:900px){.story-archive-hero{grid-template-columns:1fr;padding-top:90px}.story-grid{grid-template-columns:1fr}.story-detail-hero{grid-template-columns:1fr}.story-detail-image{order:2;min-height:440px}.story-detail-title{padding:80px 7vw 55px}.archive-card{min-height:320px}}
+@media(max-width:700px){.inner-page .site-header nav{display:none}.story-archive-hero{padding:72px 20px 60px}.story-archive-hero h1{font-size:57px}.story-archive-hero .intro{font-size:16px}.story-archive{padding:52px 20px 80px}.story-archive-head{display:block}.story-grid{gap:25px;padding-top:28px}.archive-card{grid-template-columns:1fr;min-height:0}.archive-card-media{min-height:280px}.archive-card-copy{padding:26px 24px}.archive-card-copy h3{font-size:27px}.story-detail-hero{min-height:0}.story-detail-title{padding:66px 20px 45px}.story-detail-title h1{font-size:62px}.story-detail-title .quote{font-size:20px}.story-detail-image{min-height:360px;background-position:58% center}.story-meta{gap:14px;flex-wrap:wrap}.story-body{padding:62px 20px 76px}.story-body .lead{font-size:25px;margin-bottom:42px}.story-body .body-copy{font-size:16px;line-height:2}.story-meaning{grid-template-columns:1fr;gap:10px;margin:48px 0;padding:26px 0}.story-meaning p{font-size:19px}.story-actions{align-items:stretch;flex-direction:column}.story-actions>*{width:100%;text-align:center}.story-next{padding:48px 20px;display:block}.story-next .button{margin-top:22px;width:100%}}
