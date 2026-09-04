@@ -109,17 +109,17 @@ body{font-size:17px;line-height:1.7}.hero h1,.product-copy h2,.how-it-works>h2,.
 @media(max-width:700px){body{font-size:16px}.site-header{height:68px}.logo{font-size:25px}.header-login{padding:7px 13px;font-size:13px}.hero h1{font-size:clamp(53px,15vw,68px)}.hero h2{font-size:22px}.product-copy h2{font-size:37px}.lead{font-size:18px}.eyebrow{font-size:13px}.steps p,.cards p,.about p:last-of-type,.purchase-copy>p:not(.eyebrow),.questions details p{font-size:16px}.cards article{min-width:86vw}.thumb{height:250px}.questions summary{font-size:17px}}
 
 /* Stronger, more legible brand typography */
-body{font-size:18px;font-weight:500}
+body{font-size:16px;font-weight:500}
 p,li,label,input,textarea{font-weight:500}
 h1,h2,h3,h4,.logo{font-weight:700}
 .button,.outline,button,.head-actions,a{font-weight:700}
-.lead{font-size:23px;font-weight:600}
-.steps p,.cards p,.about p:last-of-type,.purchase-copy>p:not(.eyebrow),.questions details p{font-size:18px;font-weight:500}
-.cards h3{font-size:33px;font-weight:700}
-.questions summary{font-size:21px;font-weight:700}
-.eyebrow{font-size:15px;font-weight:700}
-.button,.outline{font-size:16px;font-weight:700}
+.lead{font-size:20px;font-weight:600}
+.steps p,.cards p,.about p:last-of-type,.purchase-copy>p:not(.eyebrow),.questions details p{font-size:16px;font-weight:500}
+.cards h3{font-size:29px;font-weight:700}
+.questions summary{font-size:18px;font-weight:700}
+.eyebrow{font-size:13px;font-weight:700}
+.button,.outline{font-size:15px;font-weight:700}
 footer{grid-template-columns:1fr 1.25fr;gap:56px}
-footer a,footer p,footer b{font-size:17px;font-weight:600}
+footer a,footer p,footer b{font-size:15px;font-weight:600}
 footer>small{grid-column:1/3;font-size:13px;font-weight:600}
-@media(max-width:700px){body{font-size:17px}.lead{font-size:20px}.steps p,.cards p,.about p:last-of-type,.purchase-copy>p:not(.eyebrow),.questions details p{font-size:17px}.cards h3{font-size:30px}.questions summary{font-size:19px}.button,.outline{font-size:16px}.eyebrow{font-size:14px}footer{grid-template-columns:1fr;gap:28px}footer a,footer p,footer b{font-size:16px}.contact,footer>small{grid-column:1}}
+@media(max-width:700px){body{font-size:16px}.lead{font-size:19px}.steps p,.cards p,.about p:last-of-type,.purchase-copy>p:not(.eyebrow),.questions details p{font-size:16px}.cards h3{font-size:28px}.questions summary{font-size:17px}.button,.outline{font-size:15px}.eyebrow{font-size:13px}footer{grid-template-columns:1fr;gap:28px}footer a,footer p,footer b{font-size:15px}.contact,footer>small{grid-column:1}}
